@@ -1,0 +1,10 @@
+FROM alpine:3.7
+MAINTAINER jiezi <shuoshadow@foxmail.com>
+
+RUN mkdir /lib64 && ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2
+RUN mkdir -p /opt/dterm
+COPY dterm-exec /opt/dterm/
+
+WORKDIR /opt/dterm
+
+ENTRYPOINT ["./dterm-exec"]

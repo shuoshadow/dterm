@@ -1,0 +1,8 @@
+export ES_ADDR="localhost:9200"
+export K8S_CLUSTER_LIST="[
+  {
+    \"name\":\"dev.dc.local\",
+    \"type\":\"out-of-cluster\",
+    \"kubeconfig\":\"dev-config\"
+  }
+]"

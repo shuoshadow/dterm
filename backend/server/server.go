@@ -2,11 +2,9 @@ package server
 
 import (
 	"bytes"
-	"crypto/tls"
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"net/url"
 	"strconv"
 
 	"backend/utils"
@@ -22,15 +20,7 @@ var (
 
 func Run(port string) {
 	esClient = utils.NewESClient()
-	// without cas
-	// http.HandleFunc("/api/pods", getPods)
-	// http.HandleFunc("/ws", ws)
-	// log.Info("start server...")
-	// log.Fatal(http.ListenAndServe(net.JoinHostPort("", port), nil))
 
-	// with cas
-	casUrl := "https://cas.nidianwo.com"
-	// casUrl := "http://cas-qa3-in.dwbops.com"
 	m := http.NewServeMux()
 	m.HandleFunc("/", static)
 	m.HandleFunc("/ws", ws)
@@ -38,22 +28,10 @@ func Run(port string) {
 	m.HandleFunc("/api/auth", auth)
 	m.HandleFunc("/api/pod", getPod)
 	m.HandleFunc("/api/pods", getPods)
-	m.HandleFunc("/api/user", getUser)
-	m.HandleFunc("/api/logout", logOut)
-	url, _ := url.Parse(casUrl)
-	client := cas.NewClient(&cas.Options{
-		URL:         url,
-		SendService: true,
-		Client: &http.Client{
-			Transport: &http.Transport{
-				TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
-			},
-		},
-	})
 
 	server := &http.Server{
 		Addr:    ":" + port,
-		Handler: client.Handle(m),
+		Handler: m,
 	}
 
 	log.Info("start server...")

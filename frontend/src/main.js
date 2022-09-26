@@ -60,10 +60,7 @@ axios.interceptors.response.use(
     if (error.response) {
       switch (error.response.status) {
         case 401:
-          window.location.href = "https://cas.nidianwo.com/login?service=" + process.env.BASE_API + router.currentRoute.path
-          // window.location.href = "http://cas-qa3-in.dwbops.com/login?service=" + process.env.BASE_API + "/"
-          // window.location.href = "http://cas-qa3-in.dwbops.com/login?service=" + process.env.BASE_API + router.currentRoute.path
-          // window.location.href = "https://cas.nidianwo.com/login?service=" + process.env.BASE_API + "/" //local debug, need to change backend cas code
+          window.location.href = "https://xx.xxx.com/login?service=" + process.env.BASE_API + router.currentRoute.path
       }
     }
     return Promise.reject(error.response.data)

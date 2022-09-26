@@ -19,15 +19,6 @@ var upgrader = websocket.Upgrader{
 	CheckOrigin: func(r *http.Request) bool { return true },
 }
 
-// type PodIPResponse struct {
-// 	Found  bool `json:"found"`
-// 	Source struct {
-// 		Status struct {
-// 			PodIP string `json:"podIP"`
-// 		} `json:"status"`
-// 	} `json:"_source"`
-// }
-
 type PodIPResponse struct {
 	Found  bool `json:"found"`
 	Source struct {
@@ -109,15 +100,11 @@ func ws(w http.ResponseWriter, r *http.Request) {
 		defer c.Close()
 
 		log.Debug(ipAddress) //ipAddress is not used in docker exec
-		// use ssh to link to pod
-		// err = utils.SSHCon(c, ipAddress, termID, r.Form["cookie"][0], cols, rows)
-		// if err != nil {
-		// 	log.Error(err)
-		// }
 
 		// use docker exec(remote server) to link to container
 		writeLock := &sync.Mutex{}
-		logUser, authed, privileged := checkAuthed(code)
+		//logUser, authed, privileged := checkAuthed(code)
+		logUser, authed, privileged := "dev", true, false
 		if !authed {
 			log.Info(fmt.Sprintf("user: %s is not allowd to login to %s", code, podID))
 			utils.SendCloseMessage(c, utils.ERROR_AUTH, writeLock)
@@ -185,9 +172,6 @@ func resize(w http.ResponseWriter, r *http.Request) {
 	cols, _ := strconv.Atoi(r.URL.Query()["cols"][0])
 	rows, _ := strconv.Atoi(r.URL.Query()["rows"][0])
 	termID := r.URL.Query()["termID"][0]
-
-	// ssh resize
-	// utils.Resize(termID, sessionID, cols, rows)
 
 	// docker exec resize
 	utils.RemoteResize(termID, sessionID, cols, rows)

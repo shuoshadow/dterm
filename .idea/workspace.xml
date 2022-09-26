@@ -6,17 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f45dcad1-8ff8-4791-9f81-76229db83c65" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/assets/icon/demo.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/assets/icon/demo_fontclass.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/assets/icon/demo_symbol.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/assets/icon/demo_unicode.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/assets/icon/iconfont.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/assets/icon/iconfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/assets/icon/iconfont.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/assets/icon/iconfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/assets/icon/iconfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/assets/icon/iconfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/server/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/server/ws.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server/ws.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
